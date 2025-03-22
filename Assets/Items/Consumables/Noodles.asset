@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a05cd21da312a419d96a85db0ed111, type: 3}
+  m_Name: Noodles
+  m_EditorClassIdentifier: 
+  title: Noodles
+  description: Recovers some health
+  sprite: {fileID: 307049234662581677, guid: f5667a6bb6f0bb946804cede5cdecd21, type: 3}
+  health: 2

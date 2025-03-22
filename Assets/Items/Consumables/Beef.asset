@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a05cd21da312a419d96a85db0ed111, type: 3}
+  m_Name: Beef
+  m_EditorClassIdentifier: 
+  title: Beef
+  description: Recovers all your health
+  sprite: {fileID: 1917982649346762048, guid: 5f6853a893fcff942bdcd181cfeb81ec, type: 3}
+  health: 3
