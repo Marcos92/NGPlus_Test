@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class ItemSlot : MonoBehaviour
 {
     private Item item;
+    public Item Item => item;
 
     [HideInInspector] public UnityEvent<Item> OnItemUpdate = new();
 

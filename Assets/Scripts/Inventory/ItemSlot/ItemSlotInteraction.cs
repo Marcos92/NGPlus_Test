@@ -6,19 +6,32 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
 {
     private ItemSlot slot;
 
-    [HideInInspector] public UnityEvent OnEnter;
-    [HideInInspector] public UnityEvent OnExit;
-    [HideInInspector] public UnityEvent<Item> OnItemDrag;
-    [HideInInspector] public UnityEvent<Item> OnItemDrop;
+    [HideInInspector] public UnityEvent OnEnter = new();
+    [HideInInspector] public UnityEvent OnExit = new();
+    [HideInInspector] public UnityEvent<Item> OnItemDrag = new();
+    [HideInInspector] public UnityEvent<Item> OnItemDrop = new();
+    [HideInInspector] public static UnityEvent<Item> OnItemSelect = new();
+    [HideInInspector] public static UnityEvent OnItemUnselect = new();
+
+    void Awake()
+    {
+        slot = GetComponent<ItemSlot>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         OnEnter.Invoke();
+
+        if (slot.Item != null)
+        {
+            OnItemSelect.Invoke(slot.Item);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         OnExit.Invoke();
+        OnItemUnselect.Invoke();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
