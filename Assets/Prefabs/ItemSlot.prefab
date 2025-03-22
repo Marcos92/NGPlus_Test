@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 6991848400494925229}
   - component: {fileID: 7383188438953037047}
   - component: {fileID: 4043001301256458247}
+  - component: {fileID: 5016418664125521424}
   m_Layer: 5
   m_Name: ItemSlot
   m_TagString: Untagged
@@ -166,6 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19df93de0b98df2488aafb9d453dc426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnItemUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7383188438953037047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +188,9 @@ MonoBehaviour:
   OnExit:
     m_PersistentCalls:
       m_Calls: []
+  OnItemDrag:
+    m_PersistentCalls:
+      m_Calls: []
   OnItemDrop:
     m_PersistentCalls:
       m_Calls: []
@@ -200,3 +207,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1164451092130895085}
+--- !u!114 &5016418664125521424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8929351402941276071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072aebd9764505243b0bec9fe8abed99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalColor: {r: 1, g: 1, b: 1, a: 0.011764706}
+  highlightColor: {r: 1, g: 1, b: 1, a: 0.050980393}
+  fadeInTime: 0.2
+  fadeOutTime: 0.1

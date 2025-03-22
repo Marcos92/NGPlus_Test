@@ -10,22 +10,17 @@ public class PlayerGameplayInput : MonoBehaviour
 
     public Vector2 Move => actionMap.FindAction("Move").ReadValue<Vector2>().normalized;
 
-    private readonly UnityEvent onAttackDown = new();
-    public UnityEvent OnAttackDown => onAttackDown;
-
-    private readonly UnityEvent onInteractDown = new();
-    public UnityEvent OnInteractDown => onInteractDown;
-
-    private static readonly UnityEvent onMenuDown = new();
-    public static UnityEvent OnMenuDown => onMenuDown;
+    [HideInInspector] public UnityEvent OnAttackDown = new();
+    [HideInInspector] public UnityEvent OnInteractDown = new();
+    [HideInInspector] public static UnityEvent OnMenuDown = new();
 
     void Start()
     {
         actionAsset = GetComponent<PlayerInput>().actions;
         actionMap = actionAsset.FindActionMap("Gameplay");
 
-        actionMap.FindAction("Attack").performed += ctx => onAttackDown.Invoke();
-        actionMap.FindAction("Interact").performed += ctx => onInteractDown.Invoke();
-        actionMap.FindAction("Menu").performed += ctx => onMenuDown.Invoke();
+        actionMap.FindAction("Attack").performed += ctx => OnAttackDown.Invoke();
+        actionMap.FindAction("Interact").performed += ctx => OnInteractDown.Invoke();
+        actionMap.FindAction("Menu").performed += ctx => OnMenuDown.Invoke();
     }
 }

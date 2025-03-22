@@ -2,11 +2,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
+public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDropHandler
 {
-    public UnityEvent OnEnter;
-    public UnityEvent OnExit;
-    public UnityEvent<Item> OnItemDrop;
+    private ItemSlot slot;
+
+    [HideInInspector] public UnityEvent OnEnter;
+    [HideInInspector] public UnityEvent OnExit;
+    [HideInInspector] public UnityEvent<Item> OnItemDrag;
+    [HideInInspector] public UnityEvent<Item> OnItemDrop;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -18,8 +21,13 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
         OnExit.Invoke();
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void OnDrop(PointerEventData eventData)
     {
-        OnItemDrop.Invoke(eventData.pointerDrag.GetComponent<Item>());
+        throw new System.NotImplementedException();
     }
 }

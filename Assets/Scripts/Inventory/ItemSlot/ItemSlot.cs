@@ -5,8 +5,7 @@ public class ItemSlot : MonoBehaviour
 {
     private Item item;
 
-    private readonly UnityEvent<Item> onItemUpdate = new();
-    public UnityEvent<Item> OnItemUpdate => onItemUpdate;
+    [HideInInspector] public UnityEvent<Item> OnItemUpdate = new();
 
     public void SetItem(Item item)
     {
