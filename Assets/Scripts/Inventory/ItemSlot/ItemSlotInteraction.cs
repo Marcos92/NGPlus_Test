@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IDropHandler
+public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
     private ItemSlot slot;
 
@@ -34,13 +34,17 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
         OnItemUnselect.Invoke();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnDrop(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        SwapItems(eventData.pointerDrag.GetComponent<DraggableItem>().Slot);
+    }
+
+    private void SwapItems(ItemSlot otherSlot)
+    {
+        Item currentItem = slot.Item;
+        Item otherItem = otherSlot.Item;
+
+        slot.SetItem(otherItem);
+        otherSlot.SetItem(currentItem);
     }
 }

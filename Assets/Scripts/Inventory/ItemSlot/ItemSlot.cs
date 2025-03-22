@@ -6,17 +6,11 @@ public class ItemSlot : MonoBehaviour
     private Item item;
     public Item Item => item;
 
-    [HideInInspector] public UnityEvent<Item> OnItemUpdate = new();
+    [HideInInspector] public UnityEvent<ItemSlot> OnSlotUpdate = new();
 
-    public void SetItem(Item item)
+    public void SetItem(Item newItem)
     {
-        this.item = item;
-        OnItemUpdate.Invoke(item);
-    }
-
-    public void RemoveItem()
-    {
-        item = null;
-        OnItemUpdate.Invoke(null);
+        item = newItem;
+        OnSlotUpdate.Invoke(this);
     }
 }
