@@ -13,6 +13,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 direction = input.Move;
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * direction);
     }
 }
