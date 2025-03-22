@@ -15,6 +15,11 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         if (input.Move.magnitude > 0)
         {
             direction = input.Move;

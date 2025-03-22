@@ -12,13 +12,12 @@ public class PlayerGameplayInput : MonoBehaviour
 
     private readonly UnityEvent onAttackDown = new();
     public UnityEvent OnAttackDown => onAttackDown;
-    private readonly UnityEvent onAttackUp = new();
-    public UnityEvent OnAttackUp => onAttackUp;
 
     private readonly UnityEvent onInteractDown = new();
     public UnityEvent OnInteractDown => onInteractDown;
-    private readonly UnityEvent onInteractUp = new();
-    public UnityEvent OnInteractUp => onInteractUp;
+
+    private static readonly UnityEvent onMenuDown = new();
+    public static UnityEvent OnMenuDown => onMenuDown;
 
     void Start()
     {
@@ -26,9 +25,7 @@ public class PlayerGameplayInput : MonoBehaviour
         actionMap = actionAsset.FindActionMap("Gameplay");
 
         actionMap.FindAction("Attack").performed += ctx => onAttackDown.Invoke();
-        actionMap.FindAction("Attack").canceled += ctx => onAttackUp.Invoke();
-
         actionMap.FindAction("Interact").performed += ctx => onInteractDown.Invoke();
-        actionMap.FindAction("Interact").canceled += ctx => onInteractUp.Invoke();
+        actionMap.FindAction("Menu").performed += ctx => onMenuDown.Invoke();
     }
 }
