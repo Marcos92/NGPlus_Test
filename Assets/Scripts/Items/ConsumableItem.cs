@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Consumable", menuName = "ScriptableObjects/Consumable", order = 1)]
-public class ItemConsumable : Item
+public class ConsumableItem : Item
 {
     [SerializeField] private int health;
 

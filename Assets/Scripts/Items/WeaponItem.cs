@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "ScriptableObjects/Weapon", order = 2)]
-public class ItemWeapon : Item
+public class WeaponItem : Item
 {
     [SerializeField] private int damage;
 

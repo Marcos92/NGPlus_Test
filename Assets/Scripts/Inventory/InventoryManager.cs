@@ -1,18 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
-    [SerializeField] private Item[] items;
+    [SerializeField] private InventoryData data = new();
+    public List<Item> InventoryItems => data.InventoryItems;
+    public WeaponItem EquippedItem => data.EquippedItem;
 
-    public Item GetItemAtIndex(int i)
+    public void UpdateInventory(InventoryData newData)
     {
-        if (i >= items.Length)
-        {
-            return null;
-        }
-        else
-        {
-            return items[i];
-        }
+        data = newData;
+    }
+
+    public InventoryData GetData()
+    {
+        return data;
     }
 }
