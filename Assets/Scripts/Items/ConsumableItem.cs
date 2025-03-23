@@ -5,6 +5,11 @@ public class ConsumableItem : Item
 {
     [SerializeField] private int health;
 
+    void Awake()
+    {
+        type = ItemType.CONSUMABLE;
+    }
+
     public override void Use()
     {
 

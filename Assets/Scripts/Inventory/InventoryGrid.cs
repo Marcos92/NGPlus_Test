@@ -33,7 +33,7 @@ public class InventoryGrid : MonoBehaviour
         }
     }
 
-    private void UpdateInventory()
+    private void UpdateInventory(Item item)
     {
         List<Item> inventoryItems = new();
         for (int i = 0; i < inventorySize; i++)

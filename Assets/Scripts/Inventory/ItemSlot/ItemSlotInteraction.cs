@@ -6,10 +6,12 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
 {
     private ItemSlot slot;
 
+    [SerializeField] private ItemType itemType = ItemType.ALL;
+
     [HideInInspector] public UnityEvent OnEnter = new();
     [HideInInspector] public UnityEvent OnExit = new();
     //[HideInInspector] public UnityEvent<Item> OnItemDrag = new();
-    [HideInInspector] public static UnityEvent OnItemDrop = new();
+    [HideInInspector] public static UnityEvent<Item> OnItemDrop = new();
     [HideInInspector] public static UnityEvent<Item> OnItemSelect = new();
     [HideInInspector] public static UnityEvent OnItemUnselect = new();
 
@@ -36,8 +38,15 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnDrop(PointerEventData eventData)
     {
-        SwapItems(eventData.pointerDrag.GetComponent<DraggableItem>().Slot);
-        OnItemDrop.Invoke();
+        ItemSlot otherSlot = eventData.pointerDrag.GetComponent<DraggableItem>().Slot;
+
+        if (otherSlot.Item != null && itemType != ItemType.ALL && otherSlot.Item.type != itemType)
+        {
+            return;
+        }
+
+        SwapItems(otherSlot);
+        OnItemDrop.Invoke(slot.Item);
     }
 
     private void SwapItems(ItemSlot otherSlot)
