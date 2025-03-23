@@ -1,13 +1,14 @@
 using System.IO;
 using UnityEngine;
 
-public class SaveSystem : MonoBehaviour
+public class SaveSystem : Singleton<SaveSystem>
 {
     private string path;
 
-    void Awake()
+    void Start()
     {
         path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SAVE_FILE.json";
+        Load();
     }
 
     public void Save()
@@ -23,7 +24,7 @@ public class SaveSystem : MonoBehaviour
     {
         string data = File.ReadAllText(path);
         InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(data);
-        InventoryManager.Instance.UpdateInventory(inventoryData);
+        InventoryManager.Instance.UpdateInventoryData(inventoryData);
         Debug.Log("Game loaded!");
         Debug.Log(data);
     }

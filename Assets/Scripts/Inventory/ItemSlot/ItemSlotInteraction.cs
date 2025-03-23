@@ -8,8 +8,8 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
 
     [HideInInspector] public UnityEvent OnEnter = new();
     [HideInInspector] public UnityEvent OnExit = new();
-    [HideInInspector] public UnityEvent<Item> OnItemDrag = new();
-    [HideInInspector] public UnityEvent<Item> OnItemDrop = new();
+    //[HideInInspector] public UnityEvent<Item> OnItemDrag = new();
+    [HideInInspector] public static UnityEvent OnItemDrop = new();
     [HideInInspector] public static UnityEvent<Item> OnItemSelect = new();
     [HideInInspector] public static UnityEvent OnItemUnselect = new();
 
@@ -37,6 +37,7 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnDrop(PointerEventData eventData)
     {
         SwapItems(eventData.pointerDrag.GetComponent<DraggableItem>().Slot);
+        OnItemDrop.Invoke();
     }
 
     private void SwapItems(ItemSlot otherSlot)
