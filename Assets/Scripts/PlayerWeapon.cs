@@ -4,7 +4,7 @@ public class PlayerWeapon : MonoBehaviour
 {
     [SerializeField] private Transform weaponHold;
 
-    void Start()
+    void Awake()
     {
         InventoryEvent.OnItemEquip.AddListener(EquipWeapon);
     }

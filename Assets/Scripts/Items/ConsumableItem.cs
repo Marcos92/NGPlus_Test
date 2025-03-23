@@ -12,6 +12,6 @@ public class ConsumableItem : Item
 
     public override void Use()
     {
-        Debug.Log("You recovered " + health + " health points!");
+
     }
 }

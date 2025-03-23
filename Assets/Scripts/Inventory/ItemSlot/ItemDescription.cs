@@ -6,7 +6,7 @@ public class ItemDescription : MonoBehaviour
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text description;
 
-    void Start()
+    void Awake()
     {
         InventoryEvent.OnItemSelect.AddListener(UpdateText);
         InventoryEvent.OnItemUnselect.AddListener(ClearText);

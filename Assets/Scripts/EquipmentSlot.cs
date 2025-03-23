@@ -13,7 +13,7 @@ public class EquipmentSlot : MonoBehaviour
         slot = GetComponentInChildren<ItemSlot>();
     }
 
-    void OnEnable()
+    void Start()
     {
         SetItem(InventoryManager.Instance.EquippedItem);
     }

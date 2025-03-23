@@ -13,7 +13,7 @@ public class PlayerGameplayInput : MonoBehaviour
     [HideInInspector] public static UnityEvent OnAttackDown = new();
     [HideInInspector] public static UnityEvent OnMenuDown = new();
 
-    void Start()
+    void Awake()
     {
         actionAsset = GetComponent<PlayerInput>().actions;
         actionMap = actionAsset.FindActionMap("Gameplay");

@@ -20,8 +20,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void UpdateEquippedItem(WeaponItem newItem)
     {
-        data.EquippedItem = newItem;
         InventoryEvent.OnItemEquip.Invoke(newItem);
+        data.EquippedItem = newItem;
     }
 
     public InventoryData GetData()
