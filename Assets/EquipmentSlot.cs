@@ -9,7 +9,7 @@ public class EquipmentSlot : MonoBehaviour
 
     void Awake()
     {
-        ItemSlotInteraction.OnItemDrop.AddListener(UpdateEquipment);
+        InventoryEvent.OnItemDrop.AddListener(UpdateEquipment);
     }
 
     void Start()
@@ -20,11 +20,6 @@ public class EquipmentSlot : MonoBehaviour
 
     public void SetItem(Item item)
     {
-        if (item != null && item.type != ItemType.WEAPON)
-        {
-            return;
-        }
-
         WeaponItem weapon = item as WeaponItem;
         slot.SetItem(weapon);
         SetText(weapon);
@@ -44,13 +39,8 @@ public class EquipmentSlot : MonoBehaviour
         }
     }
 
-    private void UpdateEquipment(Item item)
+    private void UpdateEquipment()
     {
-        if (item != null && item.type != ItemType.WEAPON)
-        {
-            return;
-        }
-
         WeaponItem weapon = (WeaponItem)slot.Item;
         InventoryManager.Instance.UpdateEquippedItem(weapon);
         SaveSystem.Instance.Save();

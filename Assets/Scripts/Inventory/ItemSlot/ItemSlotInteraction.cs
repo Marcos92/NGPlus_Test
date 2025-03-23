@@ -10,10 +10,7 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
 
     [HideInInspector] public UnityEvent OnEnter = new();
     [HideInInspector] public UnityEvent OnExit = new();
-    //[HideInInspector] public UnityEvent<Item> OnItemDrag = new();
-    [HideInInspector] public static UnityEvent<Item> OnItemDrop = new();
-    [HideInInspector] public static UnityEvent<Item> OnItemSelect = new();
-    [HideInInspector] public static UnityEvent OnItemUnselect = new();
+
 
     void Awake()
     {
@@ -26,14 +23,14 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
 
         if (slot.Item != null)
         {
-            OnItemSelect.Invoke(slot.Item);
+            InventoryEvent.OnItemSelect.Invoke(slot.Item);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         OnExit.Invoke();
-        OnItemUnselect.Invoke();
+        InventoryEvent.OnItemUnselect.Invoke();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -46,7 +43,7 @@ public class ItemSlotInteraction : MonoBehaviour, IPointerEnterHandler, IPointer
         }
 
         SwapItems(otherSlot);
-        OnItemDrop.Invoke(slot.Item);
+        InventoryEvent.OnItemDrop.Invoke();
     }
 
     private void SwapItems(ItemSlot otherSlot)

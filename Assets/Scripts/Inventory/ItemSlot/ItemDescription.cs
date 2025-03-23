@@ -8,8 +8,8 @@ public class ItemDescription : MonoBehaviour
 
     void Start()
     {
-        ItemSlotInteraction.OnItemSelect.AddListener(UpdateText);
-        ItemSlotInteraction.OnItemUnselect.AddListener(ClearText);
+        InventoryEvent.OnItemSelect.AddListener(UpdateText);
+        InventoryEvent.OnItemUnselect.AddListener(ClearText);
         ClearText();
     }
 

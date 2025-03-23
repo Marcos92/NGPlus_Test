@@ -9,7 +9,8 @@ public class InventoryGrid : MonoBehaviour
 
     void Awake()
     {
-        ItemSlotInteraction.OnItemDrop.AddListener(UpdateInventory);
+        InventoryEvent.OnItemDrop.AddListener(UpdateInventory);
+        InventoryEvent.OnItemConsume.AddListener(UpdateInventory);
     }
 
     void Start()
@@ -33,7 +34,7 @@ public class InventoryGrid : MonoBehaviour
         }
     }
 
-    private void UpdateInventory(Item item)
+    private void UpdateInventory()
     {
         List<Item> inventoryItems = new();
         for (int i = 0; i < inventorySize; i++)
