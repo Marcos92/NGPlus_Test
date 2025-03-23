@@ -15,4 +15,5 @@ MonoBehaviour:
   title: Axe
   description: Sharp and deadly
   sprite: {fileID: -6251451809504726511, guid: 4e7b4b5abad72114a8e0ce6d405f1520, type: 3}
-  damage: 3
+  type: 2
+  weapon: {fileID: 4179529596685132318, guid: 6c5eb505e9617c44aad412b69a45b5df, type: 3}

@@ -15,4 +15,5 @@ MonoBehaviour:
   title: Hammer
   description: Perfect for smashing things
   sprite: {fileID: -6251451809504726511, guid: 2e6b8086e05e5ad42a502a5e7bdbff6b, type: 3}
-  damage: 2
+  type: 2
+  weapon: {fileID: 5399039450979232510, guid: fcc38ba2a9f5a29468c111201b05c62a, type: 3}

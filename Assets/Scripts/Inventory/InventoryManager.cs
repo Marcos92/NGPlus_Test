@@ -9,7 +9,8 @@ public class InventoryManager : Singleton<InventoryManager>
 
     public void UpdateInventoryData(InventoryData newData)
     {
-        data = newData;
+        UpdateInventoryItems(newData.InventoryItems);
+        UpdateEquippedItem(newData.EquippedItem);
     }
 
     public void UpdateInventoryItems(List<Item> newItems)
@@ -20,6 +21,7 @@ public class InventoryManager : Singleton<InventoryManager>
     public void UpdateEquippedItem(WeaponItem newItem)
     {
         data.EquippedItem = newItem;
+        InventoryEvent.OnItemEquip.Invoke(newItem);
     }
 
     public InventoryData GetData()
