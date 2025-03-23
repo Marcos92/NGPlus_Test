@@ -45,6 +45,5 @@ public class EquipmentSlot : MonoBehaviour
         InventoryManager.Instance.UpdateEquippedItem(item);
         SaveSystem.Instance.Save();
         SetText(item);
-        InventoryEvent.OnItemEquip.Invoke(item);
     }
 }
