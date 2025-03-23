@@ -11,6 +11,8 @@ public class PlayerAnimation : MonoBehaviour
         input = GetComponent<PlayerGameplayInput>();
         animator = GetComponent<Animator>();
         direction = new(0, -1);
+        PlayerAttack.OnAttackStart.AddListener(() => animator.SetBool("IsAttacking", true));
+        PlayerAttack.OnAttackEnd.AddListener(() => animator.SetBool("IsAttacking", false));
     }
 
     void Update()
