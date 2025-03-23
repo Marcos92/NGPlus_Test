@@ -23,11 +23,13 @@ public class ItemSlotHighlight : MonoBehaviour
 
     public void FadeIn()
     {
+        StopAllCoroutines();
         StartCoroutine(FadeCoroutine(highlightColor, fadeInTime));
     }
 
     private void FadeOut()
     {
+        StopAllCoroutines();
         StartCoroutine(FadeCoroutine(normalColor, fadeOutTime));
     }
 
