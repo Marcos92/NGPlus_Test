@@ -26,4 +26,29 @@ public class InventoryManager : Singleton<InventoryManager>
     {
         return data;
     }
+
+    public bool AddItem(Item item)
+    {
+        //Add item to the end of the list if the inventory isn't full
+        if (data.InventoryItems.Count < InventoryData.maxInventorySize)
+        {
+            data.InventoryItems.Add(item);
+            SaveSystem.Instance.Save();
+            return true;
+        }
+
+        //Check if there's an empty space and add item there
+        foreach (Item i in data.InventoryItems)
+        {
+            if (i == null)
+            {
+                int index = data.InventoryItems.IndexOf(i);
+                data.InventoryItems[index] = item;
+                SaveSystem.Instance.Save();
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

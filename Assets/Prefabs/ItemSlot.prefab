@@ -107,16 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d45e65333272b45a3774686a7410ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   OnEnter:
     m_PersistentCalls:
       m_Calls: []
   OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnItemDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  OnItemDrop:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &5016418664125521424
@@ -250,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 2874301170156903064, guid: 5c84564151c1755479adf6702eb8081d, type: 3}
       propertyPath: m_Name
       value: DraggableItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3945434515243737442, guid: 5c84564151c1755479adf6702eb8081d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

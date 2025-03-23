@@ -16,8 +16,6 @@ public class SaveSystem : Singleton<SaveSystem>
         InventoryData inventoryData = InventoryManager.Instance.GetData();
         string data = JsonUtility.ToJson(inventoryData);
         File.WriteAllText(path, data);
-        Debug.Log("Game saved!");
-        Debug.Log(data);
     }
 
     public void Load()
@@ -25,7 +23,5 @@ public class SaveSystem : Singleton<SaveSystem>
         string data = File.ReadAllText(path);
         InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(data);
         InventoryManager.Instance.UpdateInventoryData(inventoryData);
-        Debug.Log("Game loaded!");
-        Debug.Log(data);
     }
 }
